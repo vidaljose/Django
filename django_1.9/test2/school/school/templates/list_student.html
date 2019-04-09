@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+	{% block main %}
+		<br>
+			<a class="btn btn-primary" href="{% url 'course:create_student' %}">Nuevo Estudiante</a>
+		<br>
+		<div>
+			<table class="table">
+				<thead>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Editar</th>
+				</thead>
+				<tbody>
+					{% for stu in student %}
+					<tr>
+						<td>{{ stu.name }}</td>
+						<td>{{ stu.lastname }}</td>
+						<td><a class="btn btn-info" href="{% url 'course:edit_student' stu.id %}">Editar</a></td>
+					</tr>
+					
+					{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+	{% endblock %}
